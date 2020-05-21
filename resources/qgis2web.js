@@ -88,17 +88,20 @@ var map = new ol.Map({
     overlays: [overlayPopup],
     layers: layersList,
     view: new ol.View({
-        extent: [294514.226000, 9833779.506000, 312947.173000, 9843133.135000], maxZoom: 28, minZoom: 1, projection: new ol.proj.Projection({
+         maxZoom: 28, minZoom: 1, projection: new ol.proj.Projection({
             code: '',
-            extent: [294514.226000, 9833779.506000, 312947.173000, 9843133.135000],
+            extent: [294514.226000, 9819770.000000, 321400.000000, 9845970.000000],
             units: 'm'})
     })
 });
 
 var layerSwitcher = new ol.control.LayerSwitcher({tipLabel: "Layers"});
 map.addControl(layerSwitcher);
+layerSwitcher.hidePanel = function() {};
+layerSwitcher.showPanel();
 
-map.getView().fit([294514.226000, 9833779.506000, 312947.173000, 9843133.135000], map.getSize());
+
+map.getView().fit([294514.226000, 9819770.000000, 321400.000000, 9845970.000000], map.getSize());
 
 var NO_POPUP = 0
 var ALL_FIELDS = 1
@@ -138,7 +141,7 @@ var featureOverlay = new ol.layer.Vector({
     updateWhileInteracting: true // optional, for instant visual feedback
 });
 
-var doHighlight = false;
+var doHighlight = true;
 var doHover = true;
 
 var highlight;
